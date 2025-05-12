@@ -3,25 +3,28 @@ on:
   push:
     branches:
       - main
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
       - name: Connect deploy key
         uses: cloudtype-github-actions/connect@v1
         with:
           token: ${{ secrets.CLOUDTYPE_TOKEN }}
           ghtoken: ${{ secrets.GHP_TOKEN }}
+
       - name: Deploy
         uses: cloudtype-github-actions/deploy@v1
         with:
           token: ${{ secrets.CLOUDTYPE_TOKEN }}
-          project: # nbc.docker/cicd
+          project: rabitis99/cicd-test   # ✅ 수정: 실제 존재하는 Cloudtype 프로젝트명
           stage: main
           yaml: |
-            name: # 프로젝트 이름 ex) `cicd`
+            name: cicd                 # ✅ 이 부분은 cloudtype 프로젝트 yaml 파일 이름
             app: java@17
             options:
               ports: 8080
