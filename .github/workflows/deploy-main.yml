@@ -21,7 +21,7 @@ jobs:
         uses: cloudtype-github-actions/deploy@v1
         with:
           token: ${{ secrets.CLOUDTYPE_TOKEN }}
-          project: rabitis99/cicd-test   # ✅ 수정: 실제 존재하는 Cloudtype 프로젝트명
+          project: cicd-test   # ✅ 수정: 실제 존재하는 Cloudtype 프로젝트명
           stage: main
           yaml: |
             name: cicd                 # ✅ 이 부분은 cloudtype 프로젝트 yaml 파일 이름
